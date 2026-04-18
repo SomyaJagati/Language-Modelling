@@ -1,68 +1,63 @@
 # Language Modelling: Name Generation
 
-This project compares four deep learning models trained on Indian names:
+## 1. Problem Statement
+
+The goal of this project is to compare multiple deep learning models for character-level language modelling on Indian names. The models are trained to learn naming patterns and generate new names, and the main objective is to evaluate how well each model performs on this task.
+
+## 2. Dataset
+
+The dataset used in this project is [`Training/Indian_Names.txt`](/d:/Projects/Language%20Modelling/Training/Indian_Names.txt), which contains Indian names for training the language models.
+
+The dataset is used to:
+
+- Train the models on character sequences
+- Evaluate performance on train, dev, and test splits
+- Generate new sample names after training
+
+## 3. Models Used
+
+This project compares the following models:
 
 - `MLP`
 - `RNN`
 - `LSTM`
 - `GRU`
 
-The Streamlit app loads the trained models, shows training/evaluation plots, compares model scores, and generates new names from a selected model.
+These models are trained and evaluated to determine which architecture performs best for the name generation task.
 
-## Features
+## 4. Experiments
 
-- Compare `MLP`, `RNN`, `LSTM`, and `GRU` in one interface
-- View training loss and evaluation loss plots
-- Inspect train, dev, and test loss/perplexity in tabular form
-- Generate sample names by choosing a model and starting character
+The experiments were carried out by training each model on the same dataset and comparing their performance using loss and perplexity metrics.
 
-## Project Structure
+The training workflow includes:
 
-```text
-.
-├── app.py
-├── requirements.txt
-├── README.md
-├── Images/
-│   ├── loss_vs_epoch_train_plot.png
-│   └── loss_vs_epoch_train_Eval_plot.png
-├── Trained_models/
-│   ├── mlp_model.pkl
-│   ├── rnn_model.pkl
-│   ├── lstm_model.pkl
-│   └── gru_model.pkl
-└── Training/
-    ├── Language_Modelling.ipynb
-    └── Indian_Names.txt
-```
+- Training each model on the Indian names dataset
+- Evaluating each model on train, dev, and test sets
+- Saving trained checkpoints in `Trained_models/`
+- Visualizing training and evaluation trends
 
-## Run The App
-
-1. Install dependencies:
+Run the Streamlit app with:
 
 ```bash
 pip install -r requirements.txt
-```
-
-2. Start Streamlit:
-
-```bash
 streamlit run app.py
 ```
 
-## Training Plots
+Training and evaluation code is available in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb).
 
-### Loss vs Epoch
+### Training Plots
+
+#### Loss vs Epoch
 
 ![Training Loss](Images/loss_vs_epoch_train_plot.png)
 
-### Train vs Dev vs Test Loss
+#### Train vs Dev vs Test Loss
 
 ![Train Dev Test Loss](Images/loss_vs_epoch_train_Eval_plot.png)
 
-## Model Scores
+## 5. Results
 
-The table below matches the scores shown in the Streamlit app and comes from the evaluation output in `Training/Language_Modelling.ipynb`.
+The table below summarizes the performance of each model:
 
 | Model | Train Loss | Train Perplexity | Dev Loss | Dev Perplexity | Test Loss | Test Perplexity |
 |---|---:|---:|---:|---:|---:|---:|
@@ -71,8 +66,66 @@ The table below matches the scores shown in the Streamlit app and comes from the
 | LSTM | 1.7042 | 5.4972 | 1.7559 | 5.7887 | 1.7464 | 5.7339 |
 | GRU | 1.7040 | 5.4957 | 1.7581 | 5.8012 | 1.7496 | 5.7524 |
 
-## Notes
+### Sampling Results
 
-- The trained checkpoints in `Trained_models/` are loaded by the Streamlit app.
-- The plots are stored in the `Images/` folder.
-- Training, evaluation, and model-saving steps are available in `Training/Language_Modelling.ipynb`.
+The following sample names were generated from the notebook demo in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb) using `start_char='a'`.
+
+#### MLP
+
+- `anjeena`
+- `ayalaksimi`
+- `anni`
+- `agel`
+- `aagizhthi`
+- `alata`
+- `adeesan`
+- `abalashree`
+- `akanan`
+- `adeeseghitha`
+
+#### RNN
+
+- `anandra`
+- `atchithra`
+- `amkaran`
+- `anan`
+- `amaroshini`
+- `anthamani`
+- `amannoush`
+- `anthushali`
+- `anthika`
+- `anath`
+
+#### LSTM
+
+- `ankBardhini`
+- `aAryavan`
+- `allishi`
+- `aesVanuja`
+- `agas`
+- `arungaram`
+- `avan`
+- `arshai`
+- `akshiga`
+- `amiRaka`
+
+#### GRU
+
+- `avarshini`
+- `ahini`
+- `aarumani`
+- `aAshvi`
+- `asenth`
+- `andi`
+- `aliara`
+- `akshana`
+- `ahianan`
+- `anka`
+
+## 6. Conclusion
+
+The comparison shows that recurrent architectures perform better than the MLP baseline for this language modelling task. Among the evaluated models, `LSTM` and `GRU` achieve the strongest overall results, with lower loss and perplexity values across dev and test sets.
+
+## 7. Future Work
+
+Future work will focus on adding a transformer model and comparing its performance against the current `MLP`, `RNN`, `LSTM`, and `GRU` architectures.
