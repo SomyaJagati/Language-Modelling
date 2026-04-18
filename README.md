@@ -8,6 +8,19 @@ The goal of this project is to compare multiple deep learning models for charact
 
 The dataset used in this project is [`Training/Indian_Names.txt`](/d:/Projects/Language%20Modelling/Training/Indian_Names.txt), which contains Indian names for training the language models.
 
+The notebook preview shows the following first 10 names from the dataset:
+
+- `Aaban`
+- `Aabharan`
+- `Aabhas`
+- `Aabhat`
+- `Aabheer`
+- `Abheer`
+- `Aabher`
+- `Aabi`
+- `Aabilesh`
+- `Aabir`
+
 The dataset is used to:
 
 - Train the models on character sequences
@@ -28,6 +41,19 @@ These models are trained and evaluated to determine which architecture performs 
 ## 4. Experiments
 
 The experiments were carried out by training each model on the same dataset and comparing their performance using loss and perplexity metrics.
+
+### Training Setup
+
+The experiment settings used in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb) are:
+
+- `Epochs`: `10`
+- `Batch size`: `32`
+- `Embedding dimension`: `64`
+- `Hidden size`: `128`
+- `Block size`: `10`
+- `Learning rate`: `0.001`
+- `Loss function`: `Cross Entropy Loss` using `F.cross_entropy`
+- `Optimizer`: `Adam` for `MLP`, `RNN`, `LSTM`, and `GRU`
 
 The training workflow includes:
 
