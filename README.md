@@ -33,8 +33,8 @@ This project compares the following models:
 
 - `MLP`
 - `RNN`
-- `LSTM`
 - `GRU`
+- `LSTM`
 
 These models are trained and evaluated to determine which architecture performs best for the name generation task.
 
@@ -44,7 +44,7 @@ The experiments were carried out by training each model on the same dataset and 
 
 ### Training Setup
 
-The experiment settings used in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb) are:
+The experiment settings used in [`Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb) are:
 
 - `Epochs`: `10`
 - `Batch size`: `32`
@@ -69,7 +69,9 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Training and evaluation code is available in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb).
+Training and evaluation code is available in:
+
+- [`Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb)
 
 ### Training Plots
 
@@ -94,7 +96,7 @@ The table below summarizes the performance of each model:
 
 ### Sampling Results
 
-The following sample names were generated from the notebook demo in [`Training/Language_Modelling.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling.ipynb) using `start_char='a'`.
+The following sample names were generated from the notebook demos in [`Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb`](/d:/Projects/Language%20Modelling/Training/Language_Modelling_MLP_RNN_LSTM_GRU.ipynb).
 
 #### MLP
 
@@ -150,8 +152,8 @@ The following sample names were generated from the notebook demo in [`Training/L
 
 ## 6. Conclusion
 
-The comparison shows that recurrent architectures perform better than the MLP baseline for this language modelling task. Among the evaluated models, `LSTM` and `GRU` achieve the strongest overall results, with lower loss and perplexity values across dev and test sets.
+The comparison shows that recurrent architectures perform better than the MLP baseline for this language modelling task. Among all evaluated models, `LSTM` and `GRU` achieve the strongest overall results on this dataset.
 
 ## 7. Future Work
 
-Future work will focus on adding a transformer model and comparing its performance against the current `MLP`, `RNN`, `LSTM`, and `GRU` architectures.
+Future work can focus on tuning the recurrent models further, experimenting with larger datasets, and improving generated name quality through better sampling strategies.
